@@ -16,13 +16,7 @@ const PersonaSchema = Schema({
     },
     role:{
         type: String,
-        default: "STUDENT_ROLE",
-        enum: ["TEACHER_ROLE", "STUDENT_ROLE"]
-    },
-    curso:{
-        type: String,
-        default: "None",
-        asignados: {type: Array, max_items: 3}
+        default: STUDENT_ROLE
     },
     estado:{
         type: String,
