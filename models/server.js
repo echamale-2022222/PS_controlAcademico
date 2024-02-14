@@ -11,6 +11,7 @@ class Server{
 
         this.conectarDB();
         this.middlewares();
+        this.routes();
     }
 
     async conectarDB(){
@@ -28,8 +29,8 @@ class Server{
     }
 
     listen(){
-        this.app.listen(this.port, () => {
-            console.log('Servidor corriendo y escuchando en el puerto: ', this.port);
+        this.app.listen(this.port, () =>{
+            console.log('Servidor corriendo y escuchando en el puerto: ', this.port)
         });
     }
 }

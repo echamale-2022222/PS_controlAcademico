@@ -16,7 +16,7 @@ const PersonaSchema = Schema({
     },
     role:{
         type: String,
-        default: STUDENT_ROLE
+        enum: ["TEACHER_ROLE", "STUDENT_ROLE"]
     },
     estado:{
         type: String,

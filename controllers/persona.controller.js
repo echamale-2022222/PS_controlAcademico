@@ -2,8 +2,8 @@ const bcryptjs = require('bcryptjs');
 const Persona = require('../models/persona');
 
 const personaPost = async (req, res) => {
-    const { nombre, correo, password} = req.body;
-    const persona = new Persona({nombre, correo, password});
+    const { nombre, correo, password, role} = req.body;
+    const persona = new Persona({nombre, correo, password, role});
 
     const salt = bcryptjs.genSaltSync();
     persona.password = bcryptjs.hashSync(password, salt);
@@ -11,7 +11,6 @@ const personaPost = async (req, res) => {
     await persona.save();
 
     res.status(202).json({
-        msg: 'Persona registrada',
         persona
     })
 }
