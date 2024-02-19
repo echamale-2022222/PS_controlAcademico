@@ -3,8 +3,8 @@ const { check } = require('express-validator');
 
 const { validarCampos } = require('../middlewares/validar-campos');
 
-const { personaPost } = require('../controllers/persona.controller');
-const { existeEmail, esRoleValido } = require('../helpers/db-validators');
+const { profesorPost } = require('../controllers/profesor.controller');
+const { existeEmail, existeEmailProfesor } = require('../helpers/db-validators');
 
 const router = Router();
 
@@ -14,9 +14,8 @@ router.post(
         check("nombre", "El nombre es obligatorio").not().isEmpty(),
         check("password", "La contraseña debe tener como minimo 6 caracteres").isLength({min:6}),
         check("correo", "El correo no es un correo valido").isEmail(),
-        check("correo").custom(existeEmail),
-        check("role").custom(esRoleValido),
+        check("correo").custom(existeEmailProfesor),
         validarCampos,
-    ], personaPost);
+    ], profesorPost);
 
 module.exports = router;

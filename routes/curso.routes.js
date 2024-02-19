@@ -2,18 +2,19 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 
 const { cursoPost } = require('../controllers/curso.controller');
-const { validarJWT } = require('../middlewares/validar-jwt')
-
+const { validarJWT } = require('../middlewares/validar-jwt');
+const { esTeacherRole, tieneRolAutorizado } = require('../middlewares/validar-roles');
 
 const router = Router();
 
 router.post(
-    "/:id",
+    "/",
     [
         validarJWT,
-        check("nombreCurso", "El nombre del curso ").not().isEmpty(),
+        esTeacherRole,
+        tieneRolAutorizado(),
+        check("nombreCurso", "El nombre del curso es obligatorio").not().isEmpty(),
         check("descripcionCurso", "La descripcion del curso no puede estar vacia").not().isEmpty(),
-        check("maestro", "El nombre del maestro no puede estar vacio").not().isEmpty(),
     ], cursoPost);
 
 module.exports = router;

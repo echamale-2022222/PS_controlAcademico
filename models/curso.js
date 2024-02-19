@@ -9,10 +9,6 @@ const CursoSchema = Schema({
         type: String,
         require: [true, 'La descripcion es obligatoria']
     },
-    maestro:{
-        type: String,
-        require: [true, 'El nombre del maestro es obligatorio']
-    },
     estadoCurso:{
         type: String,
         default: true

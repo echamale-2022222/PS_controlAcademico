@@ -7,7 +7,8 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;
         this.loginPath = '/api/auth';
-        this.personaPath = '/api/personas';
+        this.estudiantePath = '/api/estudiantes';
+        this.profesorPath = '/api/profesores';
         this.cursoPath = '/api/cursos';
 
 
@@ -28,7 +29,8 @@ class Server{
 
     routes(){
         this.app.use(this.loginPath, require('../routes/login.routes'));
-        this.app.use(this.personaPath, require('../routes/persona.routes'));
+        this.app.use(this.estudiantePath, require('../routes/estudiante.routes'));
+        this.app.use(this.profesorPath, require('../routes/profesor.routes'));
         this.app.use(this.cursoPath, require('../routes/curso.routes'));
     }
 

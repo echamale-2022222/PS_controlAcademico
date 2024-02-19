@@ -1,21 +1,23 @@
-const Persona = require('../models/persona');
-const Role = require('../models/role');
+const Profesor = require('../models/profesor');
+const Estudiante = require('../models/estudiante');
+const Curso = require('../models/curso');
 
-const existeEmail = async (correo = '') => {
-    const existenteEmail = await Persona.findOne({correo});
+const existeEmailProfesor = async (correo = '') => {
+    const existenteEmail = await Profesor.findOne({correo});
     if (existenteEmail) {
         throw new Error(`El correo ${ correo } ya esta registrado`);
-    }
+    }   
 }
 
-const esRoleValido = async (role = '') => {
-    const existeRol = await Role.findOne({role});
-    if (!existeRol) {
-        throw new Error(`El role: ${role} no existe en la base de datos`)
-    }
+const existeEmailEstudiante = async (correo = '') => {
+    const existenteEmail = await Estudiante.findOne({correo});
+    if (existenteEmail) {
+        throw new Error(`El correo ${ correo } ya esta registrado`);
+    }   
 }
+
 
 module.exports = {
-    existeEmail,
-    esRoleValido
+    existeEmailProfesor,
+    existeEmailEstudiante
 }
