@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CRUD cursos",
+    "dateExported": "2024-02-19T04:29:20.344Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "28923ee9-0ccb-47c5-9f9f-00940c017071",
+            "colId": "3c100853-c9c3-478f-99a1-433f807b7bc6",
+            "containerId": "",
+            "name": "post crearCursoProfesor",
+            "url": "http://localhost:3000/api/cursos",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-18T03:11:22.663Z",
+            "modified": "2024-02-18T06:41:13.942Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQxYTY2NjBmZDlhYWYzZjhiZTIxZWMiLCJpYXQiOjE3MDgyMzg0NDgsImV4cCI6MTcwODI0MjA0OH0.f8nhY5KTVPzBfBLtFO7FBENqXbC25GTIaS3yatQCm6o"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreCurso\": \"matematica\",\n  \"descripcionCurso\": \"hola soy matematica\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
